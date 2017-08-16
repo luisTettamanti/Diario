@@ -1,0 +1,68 @@
+header {
+    background-color: rgba(255,153,51,.7);
+    height: 100px;
+}
+
+#contenido {
+    background-color: rgba(255,153,51,.7);
+    height: 600px;
+    border: none;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+section {
+    background-color: rgba(0,230,230,.7);
+    height: 100%;
+    width: calc(100% - 310px);
+    margin-right: 10px;
+    float: left;
+    border: none;
+}
+
+#destacadas {
+    background-color: rgba(0, 255, 0,.7);
+    height: 400px;
+    width: 100%;
+}
+
+#noticias {
+    background-color: rgba(0, 255, 0,.7);
+    height: 200px;
+    width: 100%;
+}
+
+#portada {
+    background-color: rgba(204, 153, 255,.7);
+    height: 300px;
+    width: 100%;
+}
+
+#barraPortada {
+    background-color: rgba(204, 153, 255,.7);
+    height: 90px;
+    margin-top: 10px;
+    width: 100%;
+}
+
+.barra {
+    background-color: rgba(204, 153, 255,.7);
+    height: 90px;
+    width: calc(33.3% - 10px);
+    float: left;
+    border: 0px;
+    padding: 5px;
+}
+
+aside {
+    background-color: rgba(0,230,230,.7);
+    height: 100%;
+    width: 300px;
+    float: right;
+    border: none;
+}
+
+footer {
+    background-color: rgba(255,153,51,.7);
+    height: 100px;
+}
