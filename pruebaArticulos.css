@@ -1,0 +1,26 @@
+#articulo {
+    margin: 5px;
+    padding: 10px;
+    height: auto;
+    background-color: #e6ffff;
+}
+
+#seccion {
+    font-family: sans-serif;
+    margin-bottom: 0px;
+}
+
+#titulo {
+    font-family: sans-serif;
+    margin-top: 0px;
+    font-weight: bold;
+}
+
+@media screen and (min-width: 480px) {
+    #articulo {
+        width: 200px;
+        height: 200px;
+        overflow-y: hidden;
+        float: left;
+    }
+}
