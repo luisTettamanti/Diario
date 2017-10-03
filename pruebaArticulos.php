@@ -29,10 +29,10 @@
             //Para recuperar datos una fila a la vez
             $result->data_seek($j);
             $row = $result->fetch_array(MYSQLI_ASSOC);
-            echo "<div id='articulo'>";
+            echo "<div id='articulo' style='background-image: url(" . $row['foto'] . "); background-size: cover'>";
             echo "<div id='seccion' style='color:" . $row['color'] . "'>" . $row['nombre'] . '</div>';
             echo "<div id='titulo'>" . $row['titulo'] . '</div>';
-            echo $row['resumen'] . '<br>';
+            echo "<div id='texto'>" . $row['resumen'] . '</div>';
             //echo $row['texto'] . '<br>';
             echo '</div>';
         }

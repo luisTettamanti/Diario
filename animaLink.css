@@ -1,0 +1,13 @@
+/* Hoja de Estilo para animaLink */
+
+a {
+    color: blue;
+    transition-property: color;
+    transition-duration: 0.7s;
+    transition-timing-function: ease-in;
+    transition-delay: 0.3s;
+}
+
+a:hover {
+    color: red;
+}

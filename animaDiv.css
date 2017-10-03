@@ -1,0 +1,33 @@
+#animable {
+    width: 100px;
+    height: 100px;
+    background-color: orangered;
+    text-align: center;
+    line-height: 100px;
+    font-family: sans-serif;
+    color: white;
+    
+    animation-name: move;
+    animation-duration: 1s;
+    animation-timing-function:ease-in-out;
+    animation-delay: 0.5s;
+    animation-iteration-count: 1;
+    animation-direction: alternate;
+}
+
+/*@keyframes move {
+    from {
+        transform: translateX(0);
+    }
+    to {
+        transform: translateX(100px);
+    }
+}*/
+
+@keyframes move {
+    0% {transform: translateX(0);}
+    25% {transform: translate(300px,0px);}
+    50% {transform: translate(300px,300px);}
+    75% {transform: translate(0px,300px);}
+    100% {transform: translate(0);}
+}
