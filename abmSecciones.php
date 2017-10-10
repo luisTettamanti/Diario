@@ -15,10 +15,14 @@
         isset($_POST['imagen']) &&
         isset($_POST['color']))
         {
-            $nombre = get_post($conn, 'nombre');
-            $imagen = get_post($conn, 'imagen');
-            $color = get_post($conn, 'color');
+            //$nombre = get_post($conn, 'nombre');
+            //$imagen = get_post($conn, 'imagen');
+            //$color = get_post($conn, 'color');
         
+            $nombre = $_POST['nombre'];
+            $imagen = $_POST['imagen'];
+            $color = $_POST['color'];
+            
             $query = "INSERT INTO secciones (nombre, imagen, color) VALUES ('$nombre', '$imagen', '$color')";
 
             $result = $conn->query($query);
@@ -43,9 +47,8 @@ echo <<<_HTML
                 color<br><input type='text' name='color'><br>
                 <input type='submit' value='insertar'>
             </form>
-        </body>
-    </html>
-    
+            <br><br>
+            <table border=1>   
 _HTML;
 
     $query = 'SELECT * FROM secciones';
@@ -58,19 +61,26 @@ _HTML;
         $row = $result->fetch_array(MYSQLI_NUM);
         
 echo <<<_HTML
-        <br>
-        id: $row[0]<br>
-        nombre: $row[1]<br>
-        imagen: $row[2]<br>
-        color: $row[3]<br>
-        <form action="abmSecciones.php" method="post">
-            <input type="hidden" name="borrar" value="yes">
-            <input type="hidden" name="id" value="$row[0]">
-            <input type="submit" value="borrar">
-        </form>
+            <tr>
+                <td><a href="abmSecciones.php">$row[0]<a></td>
+                <td>$row[1]</td>
+                <td>$row[2]</td>
+                <td style="background-color: $row[3]">$row[3]</td>
+                <td>
+                <form action="abmSecciones.php" method="post">
+                    <input type="hidden" name="borrar" value="yes">
+                    <input type="hidden" name="id" value="$row[0]">
+                    <input type="submit" value="borrar">
+                </form>
+                </td>
+            </tr>
 _HTML;
         
     }
+
+    echo '</table>';
+    echo '</body>';
+    echo '</html>';
 
     $result->close();
     $conn->close();
