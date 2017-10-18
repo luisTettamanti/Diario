@@ -11,17 +11,33 @@
         if (!$result) echo "Falló DELETE: . $query<br>" . $conn->error . "<br><br>";
     }
 
-    if (isset($_POST['nombre']) &&
+    if (isset($_POST['modificar']) &&
+        isset($_POST['nombre']) &&
+        isset($_POST['imagen']) &&
+        isset($_POST['color']) &&
+        isset($_POST['id']))
+    {
+        $id = get_post($conn, 'id');
+        $nombre = get_post($conn, 'nombre');
+        $imagen = get_post($conn, 'imagen');
+        $color = get_post($conn, 'color');
+        $query = "UPDATE secciones SET nombre='$nombre', imagen='$imagen', color='$color' WHERE id=$id";
+        $result=$conn->query($query);
+        if (!$result) echo "MODIFICAR falló: $query<br>" . $conn->error . "<br><br>";
+    }
+
+    if (isset($_POST['insertar']) &&
+        isset($_POST['nombre']) &&
         isset($_POST['imagen']) &&
         isset($_POST['color']))
         {
-            //$nombre = get_post($conn, 'nombre');
-            //$imagen = get_post($conn, 'imagen');
-            //$color = get_post($conn, 'color');
+            $nombre = get_post($conn, 'nombre');
+            $imagen = get_post($conn, 'imagen');
+            $color = get_post($conn, 'color');
         
-            $nombre = $_POST['nombre'];
-            $imagen = $_POST['imagen'];
-            $color = $_POST['color'];
+            //$nombre = $_POST['nombre'];
+            //$imagen = $_POST['imagen'];
+            //$color = $_POST['color'];
             
             $query = "INSERT INTO secciones (nombre, imagen, color) VALUES ('$nombre', '$imagen', '$color')";
 
@@ -40,11 +56,12 @@ echo <<<_HTML
         </head>
 
         <body>
-            <form action='abmSecciones.php' method='post'>
+            <form action='abSecciones.php' method='post'>
                 id<br><input type='text' name='id'><br>
                 nombre<br><input type='text' name='nombre'><br>
                 imagen<br><input type='text' name='imagen'><br>
                 color<br><input type='text' name='color'><br>
+                <input type="hidden" name="insertar" value="yes">
                 <input type='submit' value='insertar'>
             </form>
             <br><br>
@@ -62,12 +79,12 @@ _HTML;
         
 echo <<<_HTML
             <tr>
-                <td><a href="abmSecciones.php">$row[0]<a></td>
+                <td><a href="mSecciones.php?id=$row[0]">$row[0]<a></td>
                 <td>$row[1]</td>
                 <td>$row[2]</td>
                 <td style="background-color: $row[3]">$row[3]</td>
                 <td>
-                <form action="abmSecciones.php" method="post">
+                <form action="abSecciones.php" method="post">
                     <input type="hidden" name="borrar" value="yes">
                     <input type="hidden" name="id" value="$row[0]">
                     <input type="submit" value="borrar">
