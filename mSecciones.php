@@ -6,11 +6,11 @@ echo <<<HTMLBLOCK
     <head>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Sección Diario</title>
+        <title>Secciones - Modificar</title>
     </head>
 
     <body>
-    <h2>Diario Carena</h2>
+    <h3>Secciones - Modificar</h3>
 HTMLBLOCK;
 
 require_once 'conexion.php';
@@ -31,7 +31,7 @@ $imagen     = $row["imagen"];
 $color      = $row["color"];
 
 echo <<<HTMLBLOCK
-<form action="abSecciones.php" method="post"><pre>
+<form action="Secciones.php" method="post"><pre>
 Id         <input type="text" name="id" value=$id>
 Nombre     <input type="text" name="nombre" value="$nombre">
 Imagen     <input type="text" name="imagen" value="$imagen">
